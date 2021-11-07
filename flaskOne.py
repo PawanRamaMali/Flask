@@ -44,5 +44,10 @@ def sum_two_numbers(num1, num2):
     return '<h1> the sum of numbers is {}'.format(num1+num2) + '</h1>'
 
 
+# Render Template
+@app.route('/render')
+def show_html_template():
+    return render_template('hello.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
