@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Movies Duration </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+    <body>
+
+        <h2> This collection belongs to {{ name }}</h2>
+        <table>
+            <tr>
+                    <th>
+                        Movie
+                    </th>
+                    <th>
+                        Length
+                    </th>
+                    <th>
+                        Comments
+                    </th>
+            </tr>
+
+            {% for movie, length in movies.items() %}
+                <tr>
+                    <td> {{movie}} </td>
+                    <td> {{length}} </td>
+
+                    {% if length <= 2 %}
+                       <td style="color:green"> Short Movie </td>
+                    {% elif length >= 2 and length <=3 %}
+                        <td style="color:blue"> Medium Movie </td>
+                    {% else %}
+                        <td style="color: red"> Long Movie </td>
+                    {% endif %}
+                </tr>
+
+
+            {% endfor %}
+        </table>
+
+
+    </body>
+
+</html>

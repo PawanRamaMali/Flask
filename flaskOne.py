@@ -49,5 +49,36 @@ def sum_two_numbers(num1, num2):
 def show_html_template():
     return render_template('hello.html')
 
+
+# Jinja Template
+@app.route('/watch')
+def top_movies():
+    movie_list = ['Autopsy of jane doe',
+                  'Neon demon',
+                  'Ghost in a shell',
+                  'Kong: skull island',
+                  'John wick 2',
+                  'Spiderman - homecoming']
+
+    return render_template('movies.html',
+                           movies=movie_list,
+                           name='Harry')
+
+
+# Jinja Template table
+@app.route('/tables')
+def movies_plus():
+    movies_dict = {'Autopsy of jane doe': 02.14,
+                   'Neon demon': 3.20,
+                   'Ghost in a shell': 1.50,
+                   'Kong: skull island': 3.50,
+                   'John wick 2': 02.52,
+                   'Spiderman - homecoming': 1.48}
+
+    return render_template('table_data.html',
+                           movies=movies_dict,
+                           name='Sally')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
